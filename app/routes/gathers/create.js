@@ -8,7 +8,8 @@ export default Ember.Route.extend({
   actions: {
     createGather: function(){
       var _this = this;
-      this.store.save('gather', this.modelFor('create')).then(function(){
+      console.log(this.modelFor('create'));
+      this.store.save('gather', this.modelFor('gathers.create')).then(function(){
         _this.transitionTo('gathers.index');
       });
     }

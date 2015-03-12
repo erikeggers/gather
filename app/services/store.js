@@ -44,6 +44,7 @@ export default Ember.Object.extend({
 
   save: function(type, record) {
     var adapter = this.container.lookup('adapter:' + type);
+    console.log(record);
     var serialized = record.toJSON();
 
     return adapter.save(type, serialized).then(function(recordData) {

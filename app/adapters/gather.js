@@ -4,7 +4,7 @@ import Ember from 'ember';
 export default Ember.Object.extend({
   find: function(name, id){
     /* jshint unused: false */
-    return ajax("https://api.parse.com/1/classes/gather/" + id).then(function(gather){
+    return ajax("https://api.parse.com/1/classes/gatherings/" + id).then(function(gather){
       gather.id = gather.objectId;
       delete gather.objectId;
       return gather;
@@ -13,7 +13,7 @@ export default Ember.Object.extend({
 
   findAll: function(name) {
     /* jshint unused: false */
-    return ajax("https://api.parse.com/1/classes/gather").then(function(response){
+    return ajax("https://api.parse.com/1/classes/gatherings").then(function(response){
       return response.results.map(function(gather) {
         gather.id = gather.objectId;
         delete gather.objectId;
@@ -24,7 +24,7 @@ export default Ember.Object.extend({
 
   findQuery: function(name, query) {
     /* jshint unused: false */
-    return ajax("https://api.parse.com/1/classes/gather", {
+    return ajax("https://api.parse.com/1/classes/gatherings", {
       data: Ember.$.param({
               where: JSON.stringify(query)
             })
@@ -40,7 +40,7 @@ export default Ember.Object.extend({
   destroy: function(name, record) {
     /* jshint unused: false */
     return ajax({
-      url: "https://api.parse.com/1/classes/gather/" + record.id,
+      url: "https://api.parse.com/1/classes/gatherings/" + record.id,
       type: "DELETE"
     });
   },
@@ -49,7 +49,7 @@ export default Ember.Object.extend({
     /* jshint unused: false */
     if(record.id) {
       return ajax({
-        url: "https://api.parse.com/1/classes/gather/" + record.id,
+        url: "https://api.parse.com/1/classes/gatherings/" + record.id,
         type: "PUT",
         data: JSON.stringify(record)
       }).then(function(response) {
@@ -59,7 +59,7 @@ export default Ember.Object.extend({
       });
     } else {
       return ajax({
-        url: "https://api.parse.com/1/classes/gather",
+        url: "https://api.parse.com/1/classes/gatherings",
         type: "POST",
         data: JSON.stringify(record)
       }).then(function(response) {
