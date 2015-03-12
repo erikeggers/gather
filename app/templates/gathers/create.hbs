@@ -1,52 +1,52 @@
 
 <div class="container">
-  <form class="col-md-6 col-md-push-3">
+  <form {{action 'createGather' on="submit"}} class="col-md-6 col-md-push-3">
     <h1>Create Your Gather</h1><br>
     <div class="form-group">
       <label>Give your Gather a name</label>
-      {{input type="text" class="form-control" value=gatherName}}
+      {{input type="text" class="form-control" value=model.gatherName}}
     </div>
     <div class="form-group">
       <label>What Conference is your Gather for?</label>
-      {{input type="text" class="form-control" value=gatherConf}}
+      {{input type="text" class="form-control" value=model.gatherConf}}
     </div>
     <div class="form-group">
       <label>Enter name of Gather location</label>
-      {{input type="text" class="form-control" value=gatherLocation}}
+      {{input type="text" class="form-control" value=model.gatherLocation}}
     </div>
     <div class="form-group">
       <label>Address line 1</label>
-      {{input type="text" class="form-control" value=gatherLocationAddress1}}
+      {{input type="text" class="form-control" value=model.gatherLocationAddress1}}
       <p class="help-block">Street address, P.O. box, company name, c/o</p>
     </div>
     <div class="form-group">
       <label>Address line 2</label>
-      {{input type="text" class="form-control" value=gatherLocationAddress2}}
+      {{input type="text" class="form-control" value=model.gatherLocationAddress2}}
       <p class="help-block">Apartment, suite , unit, building, floor, etc.</p>
     </div>
     <div class="form-group">
       <label>City</label>
-      {{input type="text" class="form-control" value=gatherCity}}
+      {{input type="text" class="form-control" value=model.gatherCity}}
     </div>
     <div class="form-group">
       <label>State</label>
-      {{input type="text" class="form-control" value=gatherState}}
+      {{input type="text" class="form-control" value=model.gatherState}}
     </div>
     <div class="form-group">
       <label>Zip</label>
-      {{input type="text" class="form-control" value=gatherZip}}
+      {{input type="text" class="form-control" value=model.gatherZip}}
     </div>
     <div class="form-group">
       <label>Date</label>
-      {{input type="date" class="form-control" value=gatherDate}}
+      {{input type="date" class="form-control" value=model.gatherDate}}
     </div>
     <div class="form-group">
       <label>Time</label>
-      {{input type="time" class="form-control" value=gatherTime}}
+      {{input type="time" class="form-control" value=model.gatherTime}}
     </div>
 
     <label>Give a brief description of your Gather</label>
-    {{textarea class="form-control" rows="4" value=gatherDescription}}
+    {{textarea class="form-control" rows="4" value=model.gatherDescription}}
 
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
