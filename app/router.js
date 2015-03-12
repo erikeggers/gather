@@ -12,6 +12,7 @@ Router.map(function() {
     this.route('signup');
     this.route('yourgatherings');
     this.route('create');
+    this.route('profile');
   });
 });
 
