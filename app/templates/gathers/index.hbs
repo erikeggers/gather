@@ -1,11 +1,12 @@
 <div class="jumbotron">
 
     <h1>Welcome</h1>
-    <p>Find local Gathers...</p>
+    <p>Gather is a place to meet and connect with others that want to set up events around conferences... </p>
     <span><a class="btn btn-primary btn-lg" {{action 'showModal' 'gathers.login-modal'}}>Login</a></span>
-    <span><a class="btn btn-primary btn-lg" {{action 'showModal' 'gathers.login-modal'}}>Sign up</a></span>
+    {{#link-to 'gathers.signup' class="btn btn-primary btn-lg"}}Sign up{{/link-to}}
 </div>
 
+<div class="container">
 <div class="row">
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
@@ -67,4 +68,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>

@@ -8,6 +8,10 @@ var Router = Ember.Router.extend({
 Router.map(function() {
   this.route('gathers', { path: '/' }, function() {
     this.route('login');
+    this.route('gather');
+    this.route('signup');
+    this.route('yourgatherings');
+    this.route('create');
   });
 });
 

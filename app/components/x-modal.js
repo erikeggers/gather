@@ -12,10 +12,9 @@ export default Ember.Component.extend({
     }
   },
 
-    show: function() {
-      this.$('.modal').modal().on('hidden.bs.modal', function() {
+  show: function() {
+    this.$('.modal').modal().on('hidden.bs.modal', function() {
       this.sendAction('close');
-      }.bind(this));
-    }.on('didInsertElement')
-    
+    }.bind(this));
+  }.on('didInsertElement')
 });

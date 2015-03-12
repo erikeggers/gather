@@ -9,6 +9,9 @@
         {{yield}}
       </div>
       <div class="modal-footer">
+        {{#link-to 'gathers.signup' data-dismiss="modal"}}
+          Don't have an account? Sign up!
+        {{/link-to}}
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary" {{action 'ok'}}>OK</button>
       </div>

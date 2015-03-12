@@ -13,4 +13,8 @@ var App = Ember.Application.extend({
 
 loadInitializers(App, config.modulePrefix);
 
+Ember.LinkView.reopen({
+  attributeBindings: ['data-dismiss']
+});
+
 export default App;
