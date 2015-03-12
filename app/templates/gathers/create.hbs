@@ -3,49 +3,50 @@
   <form class="col-md-6 col-md-push-3">
     <h1>Create Your Gather</h1><br>
     <div class="form-group">
-      <label for="formGatherName">Give your Gather a name</label>
-      <input type="text" class="form-control" id="fromGatherName">
+      <label>Give your Gather a name</label>
+      {{input type="text" class="form-control" value=gatherName}}
     </div>
     <div class="form-group">
-      <label for="formGatherConf">What Conference is your Gather for?</label>
-      <input type="text" class="form-control" id="formGatherConf">
+      <label>What Conference is your Gather for?</label>
+      {{input type="text" class="form-control" value=gatherConf}}
     </div>
     <div class="form-group">
-      <label for="formGatherLocation">Enter name of Gather location</label>
-      <input type="text" class="form-control" id="fromGatherLocation">
+      <label>Enter name of Gather location</label>
+      {{input type="text" class="form-control" value=gatherLocation}}
     </div>
     <div class="form-group">
-      <label for="formGatherLocationAddress1">Address line 1</label>
-      <input type="text" class="form-control" id="formGatherLocationAddress1">
+      <label>Address line 1</label>
+      {{input type="text" class="form-control" value=gatherLocationAddress1}}
       <p class="help-block">Street address, P.O. box, company name, c/o</p>
     </div>
     <div class="form-group">
-      <label for="formGatherLocationAddress2">Address line 2</label>
-      <input type="text" class="form-control" id="formGatherLocationAddress2">
+      <label>Address line 2</label>
+      {{input type="text" class="form-control" value=gatherLocationAddress2}}
       <p class="help-block">Apartment, suite , unit, building, floor, etc.</p>
     </div>
     <div class="form-group">
-      <label for="formGatherCity">City</label>
-      <input type="text" class="form-control" id="formGatherCity">
+      <label>City</label>
+      {{input type="text" class="form-control" value=gatherCity}}
     </div>
     <div class="form-group">
-      <label for="formGatherState">State</label>
-      <input type="text" class="form-control" id="formGatherState">
+      <label>State</label>
+      {{input type="text" class="form-control" value=gatherState}}
     </div>
     <div class="form-group">
-      <label for="formGatherZip">Zip</label>
-      <input type="text" class="form-control" id="formGatherZip">
+      <label>Zip</label>
+      {{input type="text" class="form-control" value=gatherZip}}
     </div>
     <div class="form-group">
-      <label for="formGatherDate">Date</label>
-      <input type="date" class="form-control" id="fromGatherDate">
+      <label>Date</label>
+      {{input type="date" class="form-control" value=gatherDate}}
     </div>
     <div class="form-group">
-      <label for="formGatherTime">Time</label>
-      <input type="time" class="form-control" id="fromGatherTime">
+      <label>Time</label>
+      {{input type="time" class="form-control" value=gatherTime}}
     </div>
+
     <label>Give a brief description of your Gather</label>
-    <textarea class="form-control" rows="3"></textarea>
+    {{textarea class="form-control" rows="4" value=gatherDescription}}
 
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
