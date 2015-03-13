@@ -8,7 +8,7 @@ var Router = Ember.Router.extend({
 Router.map(function() {
   this.route('gathers', { path: '/' }, function() {
     this.route('login');
-    this.route('gather');
+    this.route('gather', { path: '/gather/:gather_id' });
     this.route('signup');
     this.route('yourgatherings');
     this.route('create');
