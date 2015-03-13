@@ -24,7 +24,7 @@ module.exports = function(environment) {
       'font-src': "'self' *",
       'connect-src': "'self' https://api.parse.com",
       'img-src': "'self' *",
-      'style-src': "'self' *",
+      'style-src': "'self' 'unsafe-inline' *",
       'media-src': "'self'"
     }
   };
