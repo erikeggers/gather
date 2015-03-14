@@ -14,7 +14,8 @@
     "qunit": "~1.17.1",
     "bootstrap": "~3.3.2",
     "arrive": "~2.1.0",
-    "bootstrap-material-design": "FezVrasta/bootstrap-material-design#2708438daa55015155769489f2df8dea06fc0206"
+    "bootstrap-material-design": "FezVrasta/bootstrap-material-design#2708438daa55015155769489f2df8dea06fc0206",
+    "ember-simple-auth": "0.7.3"
   },
   "resolutions": {
     "jquery": "~2.1.3"
