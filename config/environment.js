@@ -13,6 +13,10 @@ module.exports = function(environment) {
       }
     },
 
+    'simple-auth': {
+      authenticationRoute: 'gathers.login'
+    },
+
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
