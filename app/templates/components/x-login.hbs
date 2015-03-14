@@ -1,15 +1,15 @@
 <form class="form-horizontal" {{action 'authenticate' on='submit'}}>
   <fieldset>
     <div class="form-group">
-      <label for="identification" class="control-label">Email</label>
+      <label class="control-label">Email</label>
       <div>
-        <input type="email" class="form-control" id="identification" placeholder="Enter Email">
+        {{input type="email" class="form-control" placeholder="Enter Email" value=identification}}
       </div>
     </div>
     <div class="form-group">
-      <label for="password" class="control-label">Password</label>
+      <label class="control-label">Password</label>
       <div>
-        <input type="password" class="form-control" id="password" placeholder="Enter Password">
+        {{input type="password" class="form-control" placeholder="Enter Password" value=password}}
       </div>
     </div>
     <div class="form-group">
