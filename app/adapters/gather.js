@@ -51,7 +51,7 @@ export default Ember.Object.extend({
       return ajax({
         url: "https://api.parse.com/1/classes/gatherings/" + record.id,
         type: "PUT",
-        data: JSON.stringify(record)
+        data: JSON.stringify(record),
       }).then(function(response) {
         response.id = response.objectId;
         delete response.objectId;

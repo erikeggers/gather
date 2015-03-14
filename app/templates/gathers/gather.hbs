@@ -1,12 +1,10 @@
-<div class="jumbotron">
+<div class="jumbotron" {{bind-attr style=imageStyle}}>
   <h1>{{model.gatherName}}</h1>
   <p>{{model.gatherLocation}}</p>
   <p>{{model.gatherDate}} @ {{model.gatherTime}}</p>
 
   <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
 </div>
-
- <img {{bind-attr src=model.gatherImage.url}}>
 
 <div class="container">
   <div class="row">
@@ -30,7 +28,7 @@
           <p>
             {{model.gatherDescription}}
           </p>
-          <p><a href="#" class="btn btn-primary" role="button">Join</a></p>
+          <p><a href="#" class="btn btn-primary" role="button" {{action 'showModal' 'gathers.login-modal'}}>Join</a></p>
         </div>
       </div>
     </div>

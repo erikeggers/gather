@@ -44,6 +44,11 @@
       <label>Time</label>
       {{input type="time" class="form-control" value=model.gatherTime}}
     </div>
+    <div class="form-group">
+      <label>Image</label>
+      {{input type="file" value=gatherImage}}
+      <p class="help-block">Upload image for your Gather</p>
+    </div>
 
     <label>Give a brief description of your Gather</label>
     {{textarea class="form-control" rows="4" value=model.gatherDescription}}
