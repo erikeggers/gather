@@ -14,7 +14,8 @@ module.exports = function(environment) {
     },
 
     'simple-auth': {
-      authenticationRoute: 'gathers.login'
+      authenticationRoute: 'gathers.login',
+      routeAfterAuthentication: 'gathers.index'
     },
 
     APP: {

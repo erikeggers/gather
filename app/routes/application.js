@@ -16,10 +16,6 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
         outlet: 'modal',
         parentView: 'application'
       });
-    },
-
-    weirdThing: function(){
-      console.log("success");
     }
   }
 });
