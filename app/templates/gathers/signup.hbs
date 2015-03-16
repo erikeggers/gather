@@ -1,24 +1,35 @@
-<form>
+<form {{action 'register' on="submit"}}>
   <div class="container">
     <div class="col-md-6 col-md-push-3">
-
-    <h2>Set up a Gather account</h2>
-    <div class="form-group">
-      <label for="inputEmail">Email address</label>
-      <input type="email" class="form-control" id="inputEmail">
+      <div class="form-group">
+        <label class="control-label">First Name</label>
+        <div>
+          {{input type="text" class="form-control" placeholder="Enter your first name" value=firstName}}
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label">Last Name</label>
+        <div>
+          {{input type="text" class="form-control" placeholder="Enter your last name" value=lastName}}
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label">Email</label>
+        <div>
+          {{input type="email" class="form-control" placeholder="Enter Email" value=username}}
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label">Password</label>
+        <div>
+          {{input type="password" class="form-control" placeholder="Enter Password" value=password}}
+        </div>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
     </div>
-    <div class="form-group">
-      <label for="inputPassword">Password</label>
-      <input type="password" class="form-control" id="inputPassword">
-    </div>
-    <div class="form-group">
-      <label for="inputFile">Image</label>
-      <input type="file" id="inputFile">
-      <p class="help-block">Upload profile picture.</p>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
   </div>
-</div>
 </form>
 
 {{outlet}}
