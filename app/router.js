@@ -13,6 +13,7 @@ Router.map(function() {
     this.route('yourgatherings');
     this.route('create');
     this.route('profile');
+    this.route('search', { path: '/search/:term' });
   });
 });
 

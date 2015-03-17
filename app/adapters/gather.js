@@ -4,7 +4,7 @@ import Ember from 'ember';
 export default Ember.Object.extend({
   find: function(name, id){
     /* jshint unused: false */
-    return ajax("https://api.parse.com/1/classes/gatherings/" + id).then(function(gather){
+    return ajax("https://api.parse.com/1/classes/gatherings/" + id + "?include=createdBy").then(function(gather){
       gather.id = gather.objectId;
       delete gather.objectId;
       return gather;
@@ -13,7 +13,7 @@ export default Ember.Object.extend({
 
   findAll: function(name) {
     /* jshint unused: false */
-    return ajax("https://api.parse.com/1/classes/gatherings").then(function(response){
+    return ajax("https://api.parse.com/1/classes/gatherings" + "?include=createdBy").then(function(response){
       return response.results.map(function(gather) {
         gather.id = gather.objectId;
         delete gather.objectId;
@@ -22,11 +22,15 @@ export default Ember.Object.extend({
     });
   },
 
-  findQuery: function(name, query) {
+  findQuery: function(name, searchTerm) {
     /* jshint unused: false */
     return ajax("https://api.parse.com/1/classes/gatherings", {
       data: Ember.$.param({
-              where: JSON.stringify(query)
+              where: JSON.stringify({
+                "$or": [
+                  {"gatherName":{"$in": searchTerm}}
+                ]
+              })
             })
     }).then(function(response){
       return response.results.map(function(gather) {
