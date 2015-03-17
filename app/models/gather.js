@@ -2,11 +2,11 @@ import Ember from 'ember';
 
 export default Ember.Object.extend({
   destroy: function(){
-    this.store.destroy('gather', this);
+    return this.store.destroy('gather', this);
   },
 
   save: function(){
-    this.store.save('gather', this);
+    return this.store.save('gather', this);
   },
 
   toJSON: function(){

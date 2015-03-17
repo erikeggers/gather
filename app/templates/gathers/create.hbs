@@ -4,19 +4,19 @@
     <h1>Create Your Gather</h1><br>
     <div class="form-group">
       <label>Give your Gather a name</label>
-      {{input type="text" class="form-control" value=model.gatherName}}
+      {{input type="text" class="form-control" required="true" value=model.gatherName}}
     </div>
     <div class="form-group">
       <label>What Conference is your Gather for?</label>
-      {{input type="text" class="form-control" value=model.gatherConf}}
+      {{input type="text" class="form-control" required="true" value=model.gatherConf}}
     </div>
     <div class="form-group">
       <label>Enter name of Gather location</label>
-      {{input type="text" class="form-control" value=model.gatherLocation}}
+      {{input type="text" class="form-control" required="true" value=model.gatherLocation}}
     </div>
     <div class="form-group">
       <label>Address line 1</label>
-      {{input type="text" class="form-control" value=model.gatherLocationAddress1}}
+      {{input type="text" class="form-control" required="true" value=model.gatherLocationAddress1}}
       <p class="help-block">Street address, P.O. box, company name, c/o</p>
     </div>
     <div class="form-group">
@@ -26,23 +26,23 @@
     </div>
     <div class="form-group">
       <label>City</label>
-      {{input type="text" class="form-control" value=model.gatherCity}}
+      {{input type="text" class="form-control" required="true" value=model.gatherCity}}
     </div>
     <div class="form-group">
       <label>State</label>
-      {{input type="text" class="form-control" value=model.gatherState}}
+      {{input type="text" class="form-control" required="true" value=model.gatherState}}
     </div>
     <div class="form-group">
       <label>Zip</label>
-      {{input type="text" class="form-control" value=model.gatherZip}}
+      {{input type="text" class="form-control" required="true" value=model.gatherZip}}
     </div>
     <div class="form-group">
       <label>Date</label>
-      {{input type="date" class="form-control" value=model.gatherDate}}
+      {{input type="date" class="form-control" required="true" value=model.gatherDate}}
     </div>
     <div class="form-group">
       <label>Time</label>
-      {{input type="time" class="form-control" value=model.gatherTime}}
+      {{input type="time" class="form-control" required="true" value=model.gatherTime}}
     </div>
     <div class="form-group">
       <label>Image</label>
@@ -51,7 +51,7 @@
     </div>
 
     <label>Give a brief description of your Gather</label>
-    {{textarea class="form-control" rows="4" value=model.gatherDescription}}
+    {{textarea class="form-control" rows="4" required="true" value=model.gatherDescription}}
 
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
