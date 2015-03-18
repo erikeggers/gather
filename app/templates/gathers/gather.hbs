@@ -17,7 +17,17 @@
           <p>
             {{model.createdBy.bio}}
           </p>
+
+          {{#if gatherOwner}}
+
+          <p><a href="#" class="btn btn-primary" role="button">Edit</a></p>
+
+          {{else}}
+
           <p><a href="#" class="btn btn-primary" role="button">Contact</a></p>
+
+          {{/if}}
+
         </div>
       </div>
     </div>

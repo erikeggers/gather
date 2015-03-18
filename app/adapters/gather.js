@@ -24,22 +24,32 @@ export default Ember.Object.extend({
 
   findQuery: function(name, searchTerm) {
     /* jshint unused: false */
-    return ajax("https://api.parse.com/1/classes/gatherings", {
-      data: Ember.$.param({
-              where: JSON.stringify({
-                "$or": [
-                  {"gatherName":{"$in": searchTerm}}
-                ]
-              })
-            })
+    return ajax("https://api.parse.com/1/functions/search", {
+      type: "POST",
+      data: JSON.stringify({search: searchTerm})
     }).then(function(response){
-      return response.results.map(function(gather) {
-        gather.id = gather.objectId;
-        delete gather.objectId;
-        return gather;
-      });
+        return response.result;
     });
   },
+
+  // findQuery: function(name, searchTerm) {
+  //   /* jshint unused: false */
+  //   return ajax("https://api.parse.com/1/classes/gatherings", {
+  //     data: Ember.$.param({
+  //             where: JSON.stringify({
+  //               "$or": [
+  //                 {"gatherName":{"$in": searchTerm}}
+  //               ]
+  //             })
+  //           })
+  //   }).then(function(response){
+  //     return response.results.map(function(gather) {
+  //       gather.id = gather.objectId;
+  //       delete gather.objectId;
+  //       return gather;
+  //     });
+  //   });
+  // },
 
   destroy: function(name, record) {
     /* jshint unused: false */

@@ -2,6 +2,7 @@
 
     {{#if session.isAuthenticated}}
       <h1>Welcome, {{session.firstName}}</h1>
+      {{log session}}
     {{else}}
       <h1>Welcome</h1>
     {{/if}}

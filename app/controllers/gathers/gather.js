@@ -5,6 +5,10 @@ export default Ember.Controller.extend({
     return "background: url('" + this.get('model.gatherImage.url') + "') center center no-repeat;";
   }.property('model.gatherImage.url'),
 
+  gatherOwner: function(){
+    return (this.session.isAuthenticated && this.session.get('objectId') === this.get('model').createdBy.objectId);
+  }.property('model'),
+
   actions: {
     destroy: function(){
       this.get('model').destroy();
