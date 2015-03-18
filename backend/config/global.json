@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "_default": {
+            "link": "gather"
+        }, 
+        "gather": {
+            "applicationId": "cA07TtAmFjB0jetLc7nJIbA385G1OIKjwjxWlk1A", 
+            "masterKey": "MSaeej2HgAxFDLzaGw8ibAE4bOqZUQRk6mW6rCie"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.3.5"
+    }
+}
