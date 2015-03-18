@@ -14,6 +14,7 @@ Router.map(function() {
     this.route('create');
     this.route('profile');
     this.route('search', { path: '/search/:term' });
+    this.route('edit', { path: '/edit/:gather_id'});
   });
 });
 
