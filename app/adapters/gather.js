@@ -62,6 +62,10 @@ export default Ember.Object.extend({
   save: function(name, record) {
     /* jshint unused: false */
     if(record.id) {
+      record.createdBy.__type = 'Pointer';
+      delete record.createdAt;
+      delete record.updatedAt;
+      console.log(record);
       return ajax({
         url: "https://api.parse.com/1/classes/gatherings/" + record.id,
         type: "PUT",
