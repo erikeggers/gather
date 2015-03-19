@@ -6,7 +6,7 @@ Parse.Cloud.define('search', function(request, response){
   cityQuery.matches("gatherCity", new RegExp(request.params.search, 'i'));
 
   var stateQuery = new Parse.Query("gatherings");
-  cityQuery.matches("gatherState", new RegExp(request.params.search, 'i'));
+  stateQuery.matches("gatherState", new RegExp(request.params.search, 'i'));
 
   var query = Parse.Query.or(nameQuery, cityQuery, stateQuery);
   query.find().then(function(results) {

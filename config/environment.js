@@ -15,7 +15,14 @@ module.exports = function(environment) {
 
     'simple-auth': {
       authenticationRoute: 'gathers.login',
-      routeAfterAuthentication: 'gathers.index'
+      routeAfterAuthentication: 'gathers.index',
+      authorizer: 'authorizer:parse',
+      crossOriginWhitelist: ['https://api.parse.com']
+    },
+
+    parseKeys: {
+      applicationId: "cA07TtAmFjB0jetLc7nJIbA385G1OIKjwjxWlk1A",
+      restApi: "SlwUF66HRTP6B5zjJAk1LegTCN6CrVCXOY0vQf5g"
     },
 
     APP: {

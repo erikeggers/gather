@@ -7,6 +7,8 @@ export default Ember.Object.extend({
     return ajax("https://api.parse.com/1/classes/gatherings/" + id + "?include=createdBy").then(function(gather){
       gather.id = gather.objectId;
       delete gather.objectId;
+      gather.createdBy.id = gather.createdBy.objectId;
+      delete gather.createdBy.objectId;
       return gather;
     });
   },
@@ -17,6 +19,8 @@ export default Ember.Object.extend({
       return response.results.map(function(gather) {
         gather.id = gather.objectId;
         delete gather.objectId;
+        gather.createdBy.id = gather.createdBy.objectId;
+        delete gather.createdBy.objectId;
         return gather;
       });
     });

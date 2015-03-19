@@ -6,7 +6,7 @@ export default Ember.Controller.extend({
   }.property('model.gatherImage.url'),
 
   gatherOwner: function(){
-    return (this.session.isAuthenticated && this.session.get('objectId') === this.get('model').createdBy.objectId);
+    return (this.session.get('isAuthenticated') && this.session.get('currentUser.id') === this.get('model').createdBy.id);
   }.property('model'),
 
   actions: {
