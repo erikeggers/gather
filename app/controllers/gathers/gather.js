@@ -11,7 +11,9 @@ export default Ember.Controller.extend({
 
   actions: {
     destroy: function(){
-      this.get('model').destroy();
+      this.get('model').destroy().then(function(){
+        this.transitionToRoute('gathers.index');
+      }.bind(this));
     },
   }
 });

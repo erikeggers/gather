@@ -59,31 +59,56 @@ export default Ember.Object.extend({
     });
   },
 
+  // save: function(name, record) {
+  //   /* jshint unused: false */
+  //   if(record.id) {
+  //     record.createdBy.__type = 'Pointer';
+  //     delete record.createdAt;
+  //     delete record.updatedAt;
+  //     console.log(record);
+  //     return ajax({
+  //       url: "https://api.parse.com/1/classes/gatherings/" + record.id,
+  //       type: "PUT",
+  //       data: JSON.stringify(record),
+  //     }).then(function(response) {
+  //       response.id = response.objectId;
+  //       delete response.objectId;
+  //       return response;
+  //     });
+  //   } else {
+  //     return ajax({
+  //       url: "https://api.parse.com/1/classes/gatherings",
+  //       type: "POST",
+  //       data: JSON.stringify(record)
+  //     }).then(function(response) {
+  //       record.updatedAt = response.updatedAt;
+  //       return record;
+  //     });
+  //   }
+  // },
+
   save: function(name, record) {
-    /* jshint unused: false */
-    if(record.id) {
-      record.createdBy.__type = 'Pointer';
-      delete record.createdAt;
-      delete record.updatedAt;
-      console.log(record);
-      return ajax({
-        url: "https://api.parse.com/1/classes/gatherings/" + record.id,
-        type: "PUT",
-        data: JSON.stringify(record),
-      }).then(function(response) {
-        response.id = response.objectId;
-        delete response.objectId;
-        return response;
-      });
-    } else {
-      return ajax({
-        url: "https://api.parse.com/1/classes/gatherings",
-        type: "POST",
-        data: JSON.stringify(record)
-      }).then(function(response) {
-        record.updatedAt = response.updatedAt;
-        return record;
-      });
-    }
+  /* jshint unused: false */
+  if(record.id) {
+    return ajax({
+      url: "https://api.parse.com/1/classes/gatherings/" + record.id,
+      type: "PUT",
+      data: JSON.stringify(record.toJSON())
+    }).then(function(response) {
+      record.updatedAt = response.updatedAt;
+      return record;
+    });
+  } else {
+    return ajax({
+      url: "https://api.parse.com/1/classes/gatherings",
+      type: "POST",
+      data: JSON.stringify(record.toJSON())
+    }).then(function(response) {
+      record.id = response.objectId;
+      record.createdAt = response.createdAt;
+      return record;
+    });
   }
+}
+
 });
