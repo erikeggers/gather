@@ -4,11 +4,30 @@ import Ember from 'ember';
 export default Ember.Object.extend({
   find: function(name, id){
     /* jshint unused: false */
-    return ajax("https://api.parse.com/1/classes/gatherings/" + id + "?include=createdBy").then(function(gather){
+    var gather;
+    return ajax("https://api.parse.com/1/classes/gatherings/" + id + "?include=createdBy").then(function(response){
+      gather = response;
       gather.id = gather.objectId;
       delete gather.objectId;
       gather.createdBy.id = gather.createdBy.objectId;
       delete gather.createdBy.objectId;
+      return ajax("https://api.parse.com/1/users/", {
+        type: "GET",
+        data: {
+          where: JSON.stringify({
+            "$relatedTo":{
+              "object":{
+                "__type":"Pointer",
+                "className":"gatherings",
+                "objectId": id
+              },
+              "key":"attendees"
+            }
+          })
+        }
+      });
+    }).then(function(response){
+      gather.attendees = response.results;
       return gather;
     });
   },
@@ -36,24 +55,6 @@ export default Ember.Object.extend({
     });
   },
 
-  // findQuery: function(name, searchTerm) {
-  //   /* jshint unused: false */
-  //   return ajax("https://api.parse.com/1/classes/gatherings", {
-  //     data: Ember.$.param({
-  //             where: JSON.stringify({
-  //               "$or": [
-  //                 {"gatherName":{"$in": searchTerm}}
-  //               ]
-  //             })
-  //           })
-  //   }).then(function(response){
-  //     return response.results.map(function(gather) {
-  //       gather.id = gather.objectId;
-  //       delete gather.objectId;
-  //       return gather;
-  //     });
-  //   });
-  // },
 
   destroy: function(name, record) {
     /* jshint unused: false */
@@ -63,37 +64,11 @@ export default Ember.Object.extend({
     });
   },
 
-  // save: function(name, record) {
-  //   /* jshint unused: false */
-  //   if(record.id) {
-  //     record.createdBy.__type = 'Pointer';
-  //     delete record.createdAt;
-  //     delete record.updatedAt;
-  //     console.log(record);
-  //     return ajax({
-  //       url: "https://api.parse.com/1/classes/gatherings/" + record.id,
-  //       type: "PUT",
-  //       data: JSON.stringify(record),
-  //     }).then(function(response) {
-  //       response.id = response.objectId;
-  //       delete response.objectId;
-  //       return response;
-  //     });
-  //   } else {
-  //     return ajax({
-  //       url: "https://api.parse.com/1/classes/gatherings",
-  //       type: "POST",
-  //       data: JSON.stringify(record)
-  //     }).then(function(response) {
-  //       record.updatedAt = response.updatedAt;
-  //       return record;
-  //     });
-  //   }
-  // },
 
   save: function(name, record) {
   /* jshint unused: false */
   if(record.id) {
+    delete record.attendees;
     return ajax({
       url: "https://api.parse.com/1/classes/gatherings/" + record.id,
       type: "PUT",

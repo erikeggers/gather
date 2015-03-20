@@ -1,6 +1,9 @@
+import ajax from 'ic-ajax';
 import Ember from 'ember';
 
 export default Ember.Object.extend({
+  attendees: [],
+
   destroy: function(){
     return this.store.destroy('gather', this);
   },
@@ -20,7 +23,29 @@ export default Ember.Object.extend({
         objectId: userId
       });
     }
-
     return data;
+  },
+
+  addAttendee: function(user){
+    var data = {
+      "attendees": {
+        "__op" : "AddRelation",
+        "objects" : [
+          {
+            "__type" : "Pointer",
+            "className" : "_User",
+            "objectId" : user.id
+          }
+        ]
+      }
+    };
+    return ajax({
+      url: "https://api.parse.com/1/classes/gatherings/" + this.id,
+      type: 'PUT',
+      data: JSON.stringify(data)
+    }).then(function(response){
+      this.set('updatedAt', response.updatedAt);
+      this.get('attendees').addObject(user);
+    }.bind(this));
   }
 });

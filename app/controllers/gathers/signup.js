@@ -17,7 +17,6 @@ export default Ember.Controller.extend({
           sessionToken: response.sessionToken
         });
       }.bind(this));
-      debugger;
     },
   }
 });

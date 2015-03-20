@@ -15,5 +15,9 @@ export default Ember.Controller.extend({
         this.transitionToRoute('gathers.index');
       }.bind(this));
     },
+
+    addAttendee: function(){
+      this.get('model').addAttendee(this.get('session.currentUser'));
+    }
   }
 });
