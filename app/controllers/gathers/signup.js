@@ -12,10 +12,12 @@ export default Ember.Controller.extend({
         data: JSON.stringify(data),
         contentType: 'application/json'
       }).then(function(response){
+        console.log(response);
         this.session.authenticate('authenticator:parse-email', {
           sessionToken: response.sessionToken
         });
       }.bind(this));
+      debugger;
     },
   }
 });

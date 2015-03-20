@@ -17,19 +17,18 @@
           <p>
             {{model.createdBy.bio}}
           </p>
-
           {{#if gatherOwner}}
-
-          {{link-to "Edit info" "gathers.edit" model class="btn btn-primary" role="button"}}
-          <p><a href="#" class="btn btn-primary" role="button"{{action 'destroy'}}>Cancel Gather</a></p>
-
-
+            {{link-to "Edit info" "gathers.edit" model class="btn btn-primary" role="button"}}
+            <p><a href="#" class="btn btn-primary" role="button"{{action 'destroy'}}>Cancel Gather</a></p>
           {{else}}
-
-          <p><a href="#" class="btn btn-primary" role="button">Contact</a></p>
-
+            <p><a href="#" class="btn btn-primary" role="button">Contact</a></p>
           {{/if}}
-
+        </div>
+        <div class="caption">
+          <h3>Going</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </p>
         </div>
       </div>
     </div>
@@ -40,26 +39,56 @@
           <p>
             {{model.gatherDescription}}
           </p>
-          <p><a href="#" class="btn btn-primary" role="button" {{action 'showModal' 'gathers.login-modal'}}>Join</a></p>
+          {{#if gatherOwner}}
+          {{else}}
+            <p><a href="#" class="btn btn-primary" role="button" {{action 'showModal' 'gathers.login-modal'}}>Join</a></p>
+          {{/if}}
         </div>
       </div>
     </div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-sm-6 col-md-4 col-lg-3">
-      <div class="thumbnail">
-        <div class="caption">
-          <h3>Going</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          </p>
+    <div class="col-sm-6 col-md-8 col-lg-9">
+      <div class="caption">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <span class="glyphicon glyphicon-comment"></span> Chat
+          </div>
+          <div class="panel-body">
+            <ul class="chat">
+              <li class="right clearfix">
+                <div class="chat-body clearfix">
+                  <div class="header">
+                    <strong class="primary-font">Cool guy</strong>
+                    <div><small class="text-muted"><span class="glyphicon glyphicon-time"></span>13 mins ago</small></div>
+                  </div>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                  </p>
+                </div>
+              </li>
+              <li class="right clearfix">
+                <div class="chat-body clearfix">
+                  <div class="header">
+                    <strong class="primary-font">Another cool guy</strong>
+                    <div><small class="text-muted"><span class="glyphicon glyphicon-time"></span>10 mins ago</small></div>
+                  </div>
+                  <p>
+                    Some other lorem ispum dolor sit amet.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="panel-footer">
+            <div class="input-group">
+              <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here...">
+              <span class="input-group-btn">
+                <button class="btn btn-warning btn-sm" id="btn-chat">Send</button>
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-
   </div>
 </div>
 
