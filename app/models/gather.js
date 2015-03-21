@@ -47,5 +47,28 @@ export default Ember.Object.extend({
       this.set('updatedAt', response.updatedAt);
       this.get('attendees').addObject(user);
     }.bind(this));
+  },
+
+  removeAttendee: function(user){
+    var data = {
+      "attendees": {
+        "__op" : "RemoveRelation",
+        "objects" : [
+          {
+            "__type" : "Pointer",
+            "className" : "_User",
+            "objectId" : user.id
+          }
+        ]
+      }
+    };
+    return ajax({
+      url: "https://api.parse.com/1/classes/gatherings/" + this.id,
+      type: 'PUT',
+      data: JSON.stringify(data)
+    }).then(function(response){
+      this.set('updatedAt', response.updatedAt);
+      this.get('attendees').removeObject(user);
+    }.bind(this));
   }
 });

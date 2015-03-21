@@ -40,9 +40,24 @@
           <p>
             {{model.gatherDescription}}
           </p>
-          {{#unless gatherOwner}}
+
+            <p><a href="#" class="btn btn-primary" role="button" {{action 'removeAttendee'}}>Leave Gather</a></p>
             <p><a href="#" class="btn btn-primary" role="button" {{action 'addAttendee'}}>Join</a></p>
-          {{/unless}}
+
+            <span> test </span>
+
+            {{#if gatherJoined}}
+              <p>It worked!</p>
+            {{else}}
+              <p>failed again..</p>
+            {{/if}}
+          <!-- {{#unless gatherOwner}}
+            {{#if gatherJoined}}
+              <p><a href="#" class="btn btn-primary" role="button" {{action 'removeAttendee'}}>Leave Gather</a></p>
+              {{else}}
+              <p><a href="#" class="btn btn-primary" role="button" {{action 'addAttendee'}}>Join</a></p>
+            {{/if}}
+          {{/unless}} -->
         </div>
       </div>
     </div>
