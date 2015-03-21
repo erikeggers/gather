@@ -1,1 +1,39 @@
-{{outlet}}
+<form {{action 'updateAccount' on="submit"}}>
+  <div class="container">
+    <div class="col-md-6 col-md-push-3">
+      <div class="form-group">
+        <label class="control-label">First Name</label>
+        <div>
+          {{input type="text" class="form-control" placeholder="Enter your first name" required="true" value=model.firstName}}
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label">Last Name</label>
+        <div>
+          {{input type="text" class="form-control" placeholder="Enter your last name" required="true" value=model.lastName}}
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label">Email</label>
+        <div>
+          {{input type="email" class="form-control" placeholder="Enter Email" required="true" value=model.username}}
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label">Password</label>
+        <div>
+          {{input type="password" class="form-control" placeholder="Enter Password" required="true" value=model.password}}
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Tell us about yourself</label>
+        {{textarea class="form-control" rows="4" required="true" value=model.bio}}
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+</form>

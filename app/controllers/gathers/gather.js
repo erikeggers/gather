@@ -10,13 +10,10 @@ export default Ember.Controller.extend({
   }.property('model'),
 
   gatherJoined: function(){
-    var _this = this;
-    var attendees = this.get('model').attendees;
-    attendees.forEach(function(attendee){
-      console.log(attendee.objectId === _this.session.get('currentUser.id'));
-      console.log(_this.session.get('currentUser.id'));
-    });
-  }.property('model'),
+    var currentUserId = this.session.get('currentUser.id');
+    var attendees = this.get('model.attendees');
+    return attendees.filterBy('objectId', currentUserId);
+  }.property('model.attendees.@each'),
 
   actions: {
     destroy: function(){
