@@ -12,7 +12,7 @@ export default Ember.Controller.extend({
   gatherJoined: function(){
     var currentUserId = this.session.get('currentUser.id');
     var attendees = this.get('model.attendees');
-    return attendees.filterBy('objectId', currentUserId);
+    return attendees.filterBy('id', currentUserId);
   }.property('model.attendees.@each'),
 
   actions: {
