@@ -27,7 +27,10 @@ export default Ember.Object.extend({
         }
       });
     }).then(function(response){
-      gather.attendees = response.results;
+      gather.attendees = response.results.map(function(attendee) {
+       attendee.id = attendee.objectId;
+       return attendee;
+      });
       return gather;
     });
   },

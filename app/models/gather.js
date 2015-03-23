@@ -1,19 +1,11 @@
 import ajax from 'ic-ajax';
-import Ember from 'ember';
+import Model from 'ember-magic-man/model';
 
-export default Ember.Object.extend({
+export default Model.extend({
   attendees: [],
 
-  destroy: function(){
-    return this.store.destroy('gather', this);
-  },
-
-  save: function(){
-    return this.store.save('gather', this);
-  },
-
   toJSON: function(){
-    var data = Ember.Object.create(this);
+    var data = this._super();
 
     var userId = this.get('createdBy.id');
     if(userId) {
