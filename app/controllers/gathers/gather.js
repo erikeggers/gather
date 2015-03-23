@@ -37,7 +37,7 @@ export default Ember.Controller.extend({
       var gatherId = this.get('model.id');
 
       var data = {
-        
+
         "createdBy" :
         {
           "__type" : "Pointer",
@@ -57,7 +57,7 @@ export default Ember.Controller.extend({
       };
       var post = this.store.createRecord('post', data);
       post.save().then(function(){
-        // this.get('posts').addObject(post);
+        this.get('posts').addObject(post);
       }.bind(this));
     }
   }
