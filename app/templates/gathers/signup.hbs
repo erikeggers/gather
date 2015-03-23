@@ -2,13 +2,13 @@
   <div class="container">
     <div class="col-md-6 col-md-push-3">
       <div class="form-group">
-        <label class="control-label">First Name</label>
+        <label class="control-label">First name</label>
         <div>
           {{input type="text" class="form-control" placeholder="Enter your first name" required="true" value=firstName}}
         </div>
       </div>
       <div class="form-group">
-        <label class="control-label">Last Name</label>
+        <label class="control-label">Last name</label>
         <div>
           {{input type="text" class="form-control" placeholder="Enter your last name" required="true" value=lastName}}
         </div>
@@ -25,7 +25,12 @@
           {{input type="password" class="form-control" placeholder="Enter Password" required="true" value=password}}
         </div>
       </div>
+      <div class="form-group">
+        <label class="control-label">Upload a profile picture</label>
 
+        {{select-file file=accountPictureFile class="uploadpic login-inputs form-control"}}
+
+      </div>
       <div class="form-group">
         <label>Tell us about yourself</label>
         {{textarea class="form-control" rows="4" required="true" value=bio}}

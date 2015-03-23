@@ -14,3 +14,4 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     controller.set('posts', model.posts);
   }
 });
+  
