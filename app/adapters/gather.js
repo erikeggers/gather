@@ -58,7 +58,6 @@ export default Ember.Object.extend({
     });
   },
 
-
   destroy: function(name, record) {
     /* jshint unused: false */
     return ajax({
@@ -66,7 +65,6 @@ export default Ember.Object.extend({
       type: "DELETE"
     });
   },
-
 
   save: function(name, record) {
   /* jshint unused: false */

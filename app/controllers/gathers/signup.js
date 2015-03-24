@@ -27,7 +27,6 @@ export default Ember.Controller.extend({
     }
   },
 
-
   uploadPicture: function() {
     var file = this.get('accountPictureFile');
     return ajax({
