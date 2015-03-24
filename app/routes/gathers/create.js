@@ -9,11 +9,11 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     });
   },
 
-  actions: {
-    createGather: function(){
-      this.modelFor('gathers.create').save().then(function() {
-        this.transitionTo('gathers.index');
-      }.bind(this));
-    }
-  }
+  // actions: {
+  //   createGather: function(){
+  //     this.modelFor('gathers.create').save().then(function() {
+  //       this.transitionTo('gathers.index');
+  //     }.bind(this));
+  //   }
+  // }
 });
