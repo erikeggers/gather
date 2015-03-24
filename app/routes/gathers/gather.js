@@ -5,7 +5,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   model: function(params) {
     return new Ember.RSVP.hash({
       gather: this.store.find('gather', params.gather_id),
-      posts: this.store.findAll('post'),
+      posts: this.store.findQuery('post', {
+        gather: params.gather_id
+      }),
     });
   },
 
@@ -14,4 +16,3 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     controller.set('posts', model.posts);
   }
 });
-  

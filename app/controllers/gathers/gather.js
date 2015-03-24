@@ -31,31 +31,11 @@ export default Ember.Controller.extend({
     },
 
     addPost: function(){
-
-      var message = this.get("message");
-      var createdBy = this.session.get('currentUser.id');
-      var gatherId = this.get('model.id');
-
-      var data = {
-
-        "createdBy" :
-        {
-          "__type" : "Pointer",
-          "className" : "_User",
-          "objectId" : createdBy
-        },
-
-        "gather" :
-        {
-          "__type" : "Pointer",
-          "className" : "gatherings",
-          "objectId" : gatherId
-        },
-
-        "message" : message
-
-      };
-      var post = this.store.createRecord('post', data);
+      var post = this.store.createRecord('post', {
+        message: this.get('message'),
+        createdBy: this.get('session.currentUser'),
+        gather: this.get('model')
+      });
       post.save().then(function(){
         this.get('posts').addObject(post);
       }.bind(this));
