@@ -38,6 +38,7 @@ export default Ember.Controller.extend({
       });
       post.save().then(function(){
         this.get('posts').addObject(post);
+        this.set('message', null);
       }.bind(this));
     }
   }

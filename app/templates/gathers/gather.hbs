@@ -27,8 +27,10 @@
         <div class="caption">
           <h3>Going</h3>
             {{#each attendee in model.attendees}}
-              <img class="going-icon" {{bind-attr src=attendee.userPhoto.url alt=attendee.firstName}} />
-            {{attendee.firstName}}
+              <div>
+                <img class="going-icon" {{bind-attr src=attendee.userPhoto.url alt=attendee.firstName}} />
+                {{attendee.firstName}}
+              </div>
             {{/each}}
         </div>
       </div>
@@ -37,10 +39,27 @@
     <div class="col-sm-6 col-md-8 col-lg-9">
       <div class="thumbnail">
         <div class="caption">
-          <h2>About this Gather</h2>
+          <h2>About this Gathering</h2>
           <p>
             {{model.gatherDescription}}
           </p>
+          <h3>
+            Location
+          </h3>
+          <p>
+            {{model.gatherLocation}}
+          </p>
+          <p>
+            {{model.gatherLocationAddress1}}
+          </p>
+          {{#unless gatherLocationAddress2}}
+            <p>
+              {{model.gatherLocationAddress2}}
+            </p>
+          {{/unless}}
+          <p>{{model.gatherCity}}, {{model.gatherState}} {{model.gatherZip}}</p>
+
+
           {{#unless gatherOwner}}
             {{#if gatherJoined}}
               <p><a href="#" class="btn btn-primary" role="button" {{action 'removeAttendee'}}>Leave Gather</a></p>

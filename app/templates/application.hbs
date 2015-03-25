@@ -18,7 +18,7 @@
             <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">{{session.currentUser.firstName}} <b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li>{{#link-to 'gathers.yourgatherings'}}Your Gatherings{{/link-to}}</li>
-              <li><a href="javascript:void(0)">Gathers Attending</a></li>
+              <li>{{#link-to 'gathers.index'}}Gathers Attending{{/link-to}}</li>
               <li>{{#link-to 'gathers.profile'}}Profile{{/link-to}}</li>
               <li class="divider"></li>
               <li><a {{ action 'invalidateSession' }} href="javascript:void(0)">Logout</a></li>

@@ -11,6 +11,7 @@ Router.map(function() {
     this.route('gather', { path: '/gather/:gather_id' });
     this.route('signup');
     this.route('yourgatherings');
+    this.route('attending');
     this.route('create');
     this.route('profile');
     this.route('search', { path: '/search/:term' });
