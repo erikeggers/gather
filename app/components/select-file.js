@@ -6,7 +6,6 @@ export default Ember.Component.extend({
   setupChange: function(){
     this.$('input[type=file]').on('change', function(event){
       this.set('file', event.target.files[0]);
-      console.log(this.get('file'));
     }.bind(this));
   }.on('didInsertElement')
 });

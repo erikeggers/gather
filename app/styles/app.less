@@ -1,9 +1,13 @@
 @import "bower_components/bootstrap-material-design/less/material-fullpalette.less";
 
-@primary: @cyan-400;
+@primary: @deep-purple-400;
 
 body {
-  color: #202020;
+  color: #424242 !important;
+}
+
+.application-content {
+  min-height: 775px;
 }
 
 .index-thumbnail-container {
@@ -61,4 +65,13 @@ body {
 .panel-body {
   overflow-y: scroll;
   height: 250px;
+}
+
+* + .footer {
+  margin-bottom: 50px;
+}
+
+.footer {
+  margin-bottom: 0px;
+  text-align: center;
 }

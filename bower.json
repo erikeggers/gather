@@ -16,7 +16,10 @@
     "arrive": "~2.1.0",
     "bootstrap-material-design": "FezVrasta/bootstrap-material-design#2708438daa55015155769489f2df8dea06fc0206",
     "ember-simple-auth": "0.7.3",
-    "ember-cli-moment-shim": "~0.0.3"
+    "ember-cli-moment-shim": "~0.0.3",
+    "bootstrap-datepicker": "~1.4.0",
+    "eonasdan-bootstrap-datetimepicker": "~4.7.14",
+    "moment": "~2.9.0"
   },
   "resolutions": {
     "jquery": "~2.1.3"

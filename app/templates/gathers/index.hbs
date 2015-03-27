@@ -7,7 +7,7 @@
       <h1>Welcome</h1>
     {{/if}}
 
-    <p>Gather is a place to meet and connect with others that want to set up events around conferences... </p>
+    <p>Gather is a way to meet up with others and share ideas revolving around conferences.</p>
 
     {{#if session.isAuthenticated}}
       <p>Interested in a creating a Gathering?</p>
@@ -35,9 +35,9 @@
           </div>
           <div class="caption">
             <h3 class="gather-name">{{gather.gatherName}}</h3>
-            <h4>Created by {{gather.createdBy.firstName}}</h4>
+            <h4>{{moment gather.gatherDate}}</h4>
             <p class="gather-description">{{gather.gatherDescription}}</p>
-            {{link-to 'View Gather' 'gathers.gather' gather.id class="btn btn-primary" role="button"}}
+            {{link-to 'View Gathering' 'gathers.gather' gather.id class="btn btn-primary" role="button"}}
           </div>
         </div>
       </div>

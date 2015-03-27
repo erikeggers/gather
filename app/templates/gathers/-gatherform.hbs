@@ -36,12 +36,8 @@
       {{input type="text" class="form-control" required="true" value=model.gatherZip}}
     </div>
     <div class="form-group">
-      <label>Date</label>
-      {{input type="date" class="form-control" required="true" value=model.gatherDate}}
-    </div>
-    <div class="form-group">
-      <label>Time</label>
-      {{input type="time" class="form-control" required="true" value=model.gatherTime}}
+      <label>Date &amp; Time</label>
+      {{bs-datetimepicker date=model.gatherDate minDate=mindate maxDate=maxdate value=model.gatherDate}}
     </div>
     <div class="form-group">
       <label class="control-label">Upload header photo for your Gather</label>

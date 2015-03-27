@@ -3,24 +3,22 @@ import Ember from 'ember';
 
 export default Ember.Object.extend({
 
-  findQuery: function(name, query) {
+  findQuery: function(name, userId) {
     /* jshint unused: false */
-    console.log(query);
-    return ajax("https://api.parse.com/1/classes/gatherings", {
+    return ajax("https://api.parse.com/1/functions/attending", {
+      type: "POST",
       data: {
-        include: 'createdBy',
-        where: {
-          "$relatedTo":{
-            "object":{
-              "__type":"Pointer",
-              "className":"_User",
-              "objectId": query
-            },"key":"attendees"
-          }
-        }
+        include: "createdBy",
+        user_id: userId
       }
     }).then(function(response){
-      return response.results;
+      return response.result.map(function(gather) {
+        gather.id = gather.objectId;
+        delete gather.objectId;
+        gather.createdBy.id = gather.createdBy.objectId;
+        delete gather.createdBy.objectId;
+        return gather;
+      });
     });
   },
 });
