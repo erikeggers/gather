@@ -7,13 +7,5 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     return this.store.createRecord('gather', {
       createdBy: this.get('session.currentUser')
     });
-  },
-
-  // actions: {
-  //   createGather: function(){
-  //     this.modelFor('gathers.create').save().then(function() {
-  //       this.transitionTo('gathers.index');
-  //     }.bind(this));
-  //   }
-  // }
+  }
 });
